@@ -1,44 +1,43 @@
-project_name: tool #find-and-replace:template
+version: 2
+
+project_name: fiddle
 
 archives:
-  - id: tool #find-and-replace:template
+  - id: fiddle
+    ids:
+      - fiddle
     files:
       - LICENSE
-    format: tar.gz
-    name_template: "{{.Binary}}_{{.Version}}_{{.Os}}-{{.Arch}}"
-    rlcp: true
+    formats: [tar.gz]
+    name_template: "{{.ProjectName}}_{{.Version}}_{{.Os}}-{{.Arch}}"
 
+# brews is deprecated upstream, but it is the only GoReleaser generator of a
+# Formula (as octopot/indexit and octomation/maintainer). Keep GoReleaser
+# pinned in CI.
 brews:
-  - name: tool #find-and-replace:template
-    caveats: An example of the goreleaser usage.
+  - name: fiddle
+    ids: [fiddle]
+    # a prerelease tag (vX.Y.Z-rcN) leaves the tap as it is
+    skip_upload: auto
     commit_author:
-      name: Kamil Samigullin
-      email: kamil@samigullin.info
-    description: Template for a typical CLI-tool written on Go.
-    folder: Formula
-    homepage: https://go-tool.octolab.org/
-    tap:
+      use_github_app_token: true
+    description: "The fiddle command-line tool."
+    directory: Formula
+    homepage: https://github.com/octopot/fiddle
+    repository:
       owner: octolab
       name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
     install: |
-      bin.install "tool" #find-and-replace:template
-
-      output = Utils.popen_read("#{bin}/tool completion bash")
-      (bash_completion/"tool").write output
-
-      output = Utils.popen_read("#{bin}/tool completion fish")
-      (fish_completion/"tool.fish").write output
-
-      output = Utils.popen_read("#{bin}/tool completion zsh")
-      (zsh_completion/"_tool").write output
-
+      bin.install "fiddle"
+      generate_completions_from_executable(bin/"fiddle", "completion")
       prefix.install_metafiles
     test: |
-      system "#{bin}/tool version"
+      system "#{bin}/fiddle", "version"
 
 builds:
-  - id: tool #find-and-replace:template
-    binary: tool
+  - id: fiddle
+    binary: fiddle
     env:
       - CGO_ENABLED=0
     flags:
@@ -56,6 +55,6 @@ builds:
 checksum: { name_template: checksums.txt }
 
 release:
-  github:
-    owner: octomation
-    name: go-tool #find-and-replace:template
+  # the repository comes from the git remote; a prerelease tag (vX.Y.Z-rcN)
+  # is published as a prerelease, never as Latest
+  prerelease: auto

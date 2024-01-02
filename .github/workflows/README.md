@@ -29,23 +29,6 @@ Delivery binaries using [GoReleaser](https://goreleaser.com).
 Runs linter and tests on different Go environments.
 
 
-## [Dependabot at weekends](deps.yml)
-
-[![Status][deps.icon]][deps.page]
-
-🚧 Experimental feature, still under development. Read more
-
-- https://github.com/orgs/community/discussions/15901
-- https://github.com/dependabot/dependabot-core/issues/2980#issuecomment-760586879
-- https://github.com/octomation/go-module/issues/79
-- https://github.com/dependabot/cli
-- https://github.com/github/dependabot-action
-
-⚠️ Required:
-
-- `DEPENDABOT_TOKEN`, GitHub personal access tokens with scope: gist.
-
-
 ## [Documentation delivery](docs.yml)
 
 [![Status][docs.icon]][docs.page]
@@ -86,8 +69,6 @@ Checks tools for consistency.
 [cd.page]:          https://github.com/octomation/go-tool/actions/workflows/cd.yml
 [ci.icon]:          https://github.com/octomation/go-tool/actions/workflows/ci.yml/badge.svg
 [ci.page]:          https://github.com/octomation/go-tool/actions/workflows/ci.yml
-[deps.icon]:        https://github.com/octomation/go-tool/actions/workflows/deps.yml/badge.svg
-[deps.page]:        https://github.com/octomation/go-tool/actions/workflows/deps.yml
 [docs.icon]:        https://github.com/octomation/go-tool/actions/workflows/docs.yml/badge.svg
 [docs.page]:        https://github.com/octomation/go-tool/actions/workflows/docs.yml
 [runs.icon]:        https://github.com/octomation/go-tool/actions/workflows/runs.yml/badge.svg
