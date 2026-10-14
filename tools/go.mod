@@ -1,14 +1,14 @@
 module tools
 
-go 1.25.0
+go 1.26.0
 
 require (
 	github.com/MontFerret/cli v1.11.0
 	github.com/golang/mock v1.6.0
 	github.com/golangci/golangci-lint v1.54.2
 	github.com/suntong/html2md v1.6.0
-	golang.org/x/tools v0.48.0
-	golang.org/x/vuln v1.6.0
+	golang.org/x/tools v0.52.0
+	golang.org/x/vuln v1.9.0
 )
 
 require (
@@ -201,11 +201,11 @@ require (
 	golang.org/x/crypto v0.23.0 // indirect
 	golang.org/x/exp v0.0.0-20230510235704-dd950f8aeaea // indirect
 	golang.org/x/exp/typeparams v0.0.0-20230307190834-24139beb5833 // indirect
-	golang.org/x/mod v0.38.0 // indirect
+	golang.org/x/mod v0.42.0 // indirect
 	golang.org/x/net v0.25.0 // indirect
-	golang.org/x/sync v0.22.0 // indirect
-	golang.org/x/sys v0.47.0 // indirect
-	golang.org/x/telemetry v0.0.0-20260708182218-49f421fb7959 // indirect
+	golang.org/x/sync v0.24.0 // indirect
+	golang.org/x/sys v0.49.0 // indirect
+	golang.org/x/telemetry v0.0.0-20261010193011-f71dc92da45e // indirect
 	golang.org/x/term v0.20.0 // indirect
 	golang.org/x/text v0.15.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
